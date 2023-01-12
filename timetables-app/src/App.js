@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 import { Header } from './componenets/Header';
 import { Timetables } from './componenets/Timetables'
 
@@ -9,6 +9,8 @@ function App() {
       <header className="App-header">
         <Header/>
       </header>
+
+      <br/>
 
       <main>
         <Timetables/>

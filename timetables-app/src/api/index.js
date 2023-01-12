@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-export const BASE_URL = 'http://localhost:5074/';
+export const BASE_URL = 'http://localhost:5000/';
 
 export const ENDPOINTS = {
-    getGroups: "Group",
+    getGroups: "Groups",
     getTimetables: "Timetables"
 }
 

@@ -1,5 +1,4 @@
-export const getFormatedDate = () => {
-    const date = new Date();
+export const getFormatedDate = (date) => {
     const day = getWeekDay(date); 
     const dayNumber = date.getDate();
     const month = getMonth(date);
@@ -13,8 +12,9 @@ function getMonth(date){
     return months[date.getMonth()]
 }
 
-export function getWeekDay(date) {
-    let days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+export const DAYS_OF_WEEK = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
 
-    return days[date.getDay()];
+export function getWeekDay(date) {
+
+    return DAYS_OF_WEEK[date.getDay()];
   }
