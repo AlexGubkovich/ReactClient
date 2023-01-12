@@ -30,7 +30,7 @@ export function Timetables(){
 function DaysOfWeakMenu(props){
 
     function changeSelectedDay(event){
-        props.onSelectDayHandler(event.target.value)
+        props.onSelectDayHandler(parseInt(event.target.value))
     }
 
     const activeStyle = {
@@ -63,10 +63,10 @@ function DaysOfWeakMenu(props){
                 isCurrentDayActive = true;
                 isActiveButton = true;
             }    
-            
+
             return (
                 <div key={move}>
-                    <button value={move} style={props.selectedDay === move.toString() || isCurrentDayActive
+                    <button value={move} style={props.selectedDay === move || isCurrentDayActive
                         ? activeStyle : null} onClick={changeSelectedDay}>
                         {step}
                     </button>
