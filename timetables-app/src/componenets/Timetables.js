@@ -6,24 +6,53 @@ export function Timetables(){
     
     const [selectedGroup, setGroup] = useState(null);
     const [selectedDay, setDay] = useState(null);
+    const [timetables, setTimetables] = useState(null);
 
     const selectGroupHandler = group => setGroup(group);
     const selectDayHandler = day => setDay(day);
 
     useEffect(() => {
-        if(selectedGroup === null){
-            return
+        if(selectedGroup !== null && selectedGroup !== 'Выберите группу'){
+            createAPIEndpoint(ENDPOINTS.getTimetables)
+                .fetchById(selectedGroup)
+                .then(res => {
+                    setTimetables(res.data)
+                })
+                .catch(err => { console.log(err); })
         }
-        console.log('group = ' + selectedGroup)
-        console.log('day = ' + selectedDay)
-    })
+    },[selectedGroup])
+
+    let classes;
+    if(timetables !== null){
+        let timetable = timetables.find(e => e.date === selectedDay)
+        if(timetable !== undefined){
+            classes = <Classes lessons={timetable.lessons} subjects={timetable.subjects}/>
+        }
+        else {
+            classes = <h4>Сегодня пар Нет</h4>;
+        }
+    }
 
     return (
         <div>
             <DaysOfWeakMenu selectedDay={selectedDay} onSelectDayHandler={selectDayHandler}/>
             <GroupMenu onSelectGroupHandler={selectGroupHandler} />
+            {classes}
         </div>
 
+    )
+}
+
+function Classes(props){
+
+    let classes = props.subjects.map((step, move) => {
+        return <h1 key={move}>{step.name}</h1>
+    })
+    return (
+        <div>
+            {classes}
+        </div>
+    
     )
 }
 
