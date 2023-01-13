@@ -4,7 +4,9 @@ export const BASE_URL = 'http://localhost:5000/';
 
 export const ENDPOINTS = {
     getGroups: "Groups",
-    getTimetables: "Timetables"
+    getTimetables: "Timetables",
+    getCallSchedule: "CallSchedules"
+
 }
 
 export const createAPIEndpoint = endpoint => {
