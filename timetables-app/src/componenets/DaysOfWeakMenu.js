@@ -1,5 +1,5 @@
 import { DAYS_OF_WEEK, getWeekDay } from '../helper'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 export function DaysOfWeakMenu(props){
 
@@ -21,10 +21,15 @@ export function DaysOfWeakMenu(props){
         }
     })
 
+    const style = {
+        display: 'inline-flex',
+        margin: '5px'
+    }
+
     let daysMenu = DAYS_OF_WEEK.map((step,move) => {
         if(move === 0 || move === 6){
             return (
-                <div key={move}>
+                <div key={move} style={style}>
                     <button disabled={true}>
                         {step}
                     </button>
@@ -39,7 +44,7 @@ export function DaysOfWeakMenu(props){
             }    
 
             return (
-                <div key={move}>
+                <div key={move} style={style}>
                     <button value={move} style={props.selectedDay === move || isCurrentDayActive
                         ? activeStyle : null} onClick={changeSelectedDay}>
                         {step}

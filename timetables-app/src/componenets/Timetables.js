@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { GroupMenu } from './GroupMenu';
 import { DaysOfWeakMenu } from './DaysOfWeakMenu';
+import { Schedule } from './Schedule';
+import { Classes } from './Classes'
 import { createAPIEndpoint, ENDPOINTS } from '../api';
 
 export function Timetables(){
@@ -52,56 +54,24 @@ export function Timetables(){
         }
     }
 
+    const style = {
+        display: 'inline-flex',
+        margin: '30px'
+    }
+
     return (
         <div>
-            <DaysOfWeakMenu selectedDay={selectedDay} onSelectDayHandler={selectDayHandler}/>
-            <GroupMenu onSelectGroupHandler={selectGroupHandler} />
-            {schedule}
-            {classes}
+            <div>
+                <DaysOfWeakMenu selectedDay={selectedDay} onSelectDayHandler={selectDayHandler}/>
+                <GroupMenu onSelectGroupHandler={selectGroupHandler} />
+            </div>
+            <span style={style}>
+                {schedule}        
+            </span>
+            <span style={style}>
+                {classes}        
+            </span>
         </div>
 
     )
 }
-
-function Schedule(props){
-    const lessons = props.lessons;
-
-    let lessonsElements;
-    if(lessons !== undefined){
-        console.log('lessonsLog');
-    }
-
-    // return(
-    //     {lessonsElements}
-    // )
-}
-
-function Classes(props){
-    // let classes = props.lessons.map((step, move) => {
-    //     if(props.subjects[move] !== undefined){
-    //         return (
-    //             <div key={move}>
-    //                 <p>{step.start} - {step.end} - {props.subjects[move].name}</p>
-    //             </div>
-    //         )
-    //     }
-    //     else
-    //     {
-    //         return (
-    //             <div key={move}>
-    //                 <p>Нет пары😘</p>
-    //             </div>
-    //         )
-    //     }
-
-    // })
-    // return (
-    //     <div>
-    //         {classes}
-    //     </div>
-    
-    // )
-}
-
-
-
