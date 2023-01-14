@@ -1,10 +1,13 @@
 import { createAPIEndpoint, ENDPOINTS } from '../api'
 import React, { useEffect, useState } from 'react';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
 export function GroupMenu(props){
     const [groups, setGroups] = useState([]);
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState('none');
 
     useEffect(() => {
         createAPIEndpoint(ENDPOINTS.getGroups)
@@ -22,14 +25,22 @@ export function GroupMenu(props){
 
     let options = groups.map((step) => {
         return (
-            <option key={step.id} value={step.id}>{step.name}</option>
+            <MenuItem key={step.id} value={step.id}>{step.name}</MenuItem>
         )
     })
 
     return (
-        <select value={value} onChange={changeSelectedGroup}>
-            <option>Выберите группу</option>
-            {options}
-        </select>
+        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <Select
+                id="demo-simple-select-standard"
+                onChange={changeSelectedGroup}
+                value={value}
+            >
+                <MenuItem value="none" disabled>
+                    Выберите группу
+                </MenuItem>
+                {options}
+            </Select>
+        </FormControl>
     )
 }
