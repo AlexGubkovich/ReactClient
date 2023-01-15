@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import { Tabs } from '@mui/material';
 
+
 export function DaysOfWeakMenu(props){
     const [selectedDay, setValue] = React.useState(1);
     const [isDaySelected, setIsDaySelected] = React.useState(false);
@@ -28,7 +29,7 @@ export function DaysOfWeakMenu(props){
     }
 
     let daysMenu = DAYS_OF_WEEK.map((step,move) => {
-        const label = step;
+        const label = <span>{step}<br/>number</span>;
         if(move === 0 || move === 6){
             return (
                 <Tab key={move} disabled value={move} label={label} />
