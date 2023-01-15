@@ -62,7 +62,7 @@ export function Timetables(){
     return (
         <div>
             <div style={style}>
-                <DaysOfWeakMenu selectedDay={selectedDay} onSelectDayHandler={selectDayHandler}/>
+                <DaysOfWeakMenu onSelectDayHandler={selectDayHandler}/>
                 <GroupMenu onSelectGroupHandler={selectGroupHandler} />
             </div>
             <div>
