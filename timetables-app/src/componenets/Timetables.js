@@ -4,7 +4,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { GroupMenu } from './GroupMenu';
 import { DaysOfWeakMenu } from './DaysOfWeakMenu';
 import { Schedule } from './Schedule';
-import { Classes } from './Classes'
+import { Classes, ThereIsNoClassesToday } from './Classes'
 import { createAPIEndpoint, ENDPOINTS } from '../api';
 
 
@@ -53,7 +53,7 @@ export function Timetables(){
             classes = <Classes subjects={timetable.subjects} classes={timetable.classes}/>
         }
         else {
-            classes = <h4>Сегодня пар Нет</h4>;
+            classes = <ThereIsNoClassesToday/>;
         }
     }
 
@@ -67,11 +67,11 @@ export function Timetables(){
                     <GroupMenu onSelectGroupHandler={selectGroupHandler} />
                 </Grid>
             </Grid>
-            <Grid xs={12} container sx={{ justifyContent: 'start' }}>
-                <Grid>
+            <Grid xs={12} container spacing={3} sx={{ justifyContent: 'start', flexWrap: 'nowrap' }}>
+                <Grid xs={4}>
                     {schedule}        
                 </Grid>
-                <Grid>
+                <Grid xs={8}>
                     {classes}
                 </Grid>
             </Grid>

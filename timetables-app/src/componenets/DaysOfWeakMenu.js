@@ -1,17 +1,13 @@
 import { DAYS_OF_WEEK } from '../helper'
 import React, { useEffect } from 'react';
+import Tabs, { tabsClasses } from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import { twitterTabsStylesHook } from '@mui-treasury/styles/tabs';
 
 
 export function DaysOfWeakMenu(props){
     const [selectedDay, setValue] = React.useState(1);
     const [isDaySelected, setIsDaySelected] = React.useState(false);
-
-    const tabsStyles = twitterTabsStylesHook.useTabs();
-    const tabItemStyles = twitterTabsStylesHook.useTabItem();
 
     const date = new Date();
     const currentDay = date.getDay();
@@ -35,12 +31,12 @@ export function DaysOfWeakMenu(props){
     let daysMenu = DAYS_OF_WEEK.map((step, move) => {
         if(move === 0 || move === 6){
             return (
-                <Tab key={move} disabled value={move} classes={tabItemStyles} label={step} />
+                <Tab key={move} disabled value={move}  label={step} />
             )
         } 
         else {   
             return (
-                <Tab classes={tabItemStyles} key={move} value={move} label={step} />
+                <Tab key={move} value={move} label={step} />
             )
         }
     })
@@ -50,11 +46,20 @@ export function DaysOfWeakMenu(props){
     return (
         <Box sx={{ width: 'auto' }}>
             <Tabs
-                classes={tabsStyles}
                 value={selectedDay}
                 onChange={changeSelectedDay}
-                variant='scrollable'
-                scrollButtons='on'
+
+                variant="scrollable"
+                scrollButtons="auto"
+
+                textColor="secondary"
+                indicatorColor="secondary"
+
+                sx={{
+                    [`& .${tabsClasses.scrollButtons}`]: {
+                      '&.Mui-disabled': { opacity: 0.3 },
+                    }
+                  }}
             >
                 {daysMenu}
             </Tabs>

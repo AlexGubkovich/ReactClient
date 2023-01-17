@@ -31,7 +31,7 @@ export function Schedule(props){
           let active = move === currentLesson ? true : false;
             return (
                   <Box key={move} sx={{ textAlign: 'center' }}>
-                      <Grid container spacing={0}  sx={{ flexDirection: 'row', padding: '0px' }}>
+                      <Grid container spacing={0}  sx={{ flexDirection: 'row', padding: '0px', flexWrap: 'nowrap', justifyContent: 'flex-end' }}>
 
                         <Grid>
                           <Box sx={{ color: 'text.primary', fontWeight: 'bold', fontSize: 'h6.fontSize' }}>
@@ -42,15 +42,15 @@ export function Schedule(props){
                           </Box>
                         </Grid>
 
-                        <Grid>
-                          <div className="timeline">
+                        <Grid ml={1}>
+                          <Box className="timeline">
                             <img src={ active ? radio_filled : radio } alt="radio filled" />
                             <hr className="timeline__line" style={{ height: `${active ? 80 : 50}px` }}/>
                             {move === lessons.length-1 ?
-                              <img src={ active ? radio_filled : radio } alt="radio filled" /> 
+                              <img src={radio} alt="radio filled" /> 
                               : null
                             }
-                          </div>
+                          </Box>
                         </Grid>
                       </Grid>
                   </Box>
