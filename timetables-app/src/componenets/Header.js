@@ -16,7 +16,7 @@ export function Header(){
         <header className="App-header">
           <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
             <img src={hashtag} height='30px' alt="description" />
-            <Typography sx={{fontSize: 'calc(13px + 2vmin)', fontWeight: 500 }} mx={2}>AlxeGubkovich</Typography>
+            <Typography sx={{fontSize: 'calc(13px + 2vmin)', fontWeight: 500 }} mx={2}>Расписание</Typography>
           </Box>
           <span>{getFormatedDate(new Date())}</span>
         </header>

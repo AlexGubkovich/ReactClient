@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import { Header } from './componenets/Header';
+import { Footer } from './componenets/Footer'
 import { Timetables } from './componenets/Timetables'
 import Container from '@mui/material/Container';
 
@@ -13,6 +14,7 @@ function App() {
             <Timetables/>
           </Container>
         </main>
+        <Footer/>
     </div>
   );
 }
