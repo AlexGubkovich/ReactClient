@@ -48,7 +48,7 @@ export function DaysOfWeakMenu(props){
     daysMenu = daysMenu.filter((num, index) => index !== 0)
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: 'auto' }}>
             <Tabs
                 classes={tabsStyles}
                 value={selectedDay}
