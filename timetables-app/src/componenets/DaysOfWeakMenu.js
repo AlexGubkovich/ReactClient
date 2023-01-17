@@ -32,16 +32,15 @@ export function DaysOfWeakMenu(props){
         setValue(parseInt(newValue));
     }
 
-    let daysMenu = DAYS_OF_WEEK.map((step,move) => {
-        const label = <span>{step}<br/></span>;
+    let daysMenu = DAYS_OF_WEEK.map((step, move) => {
         if(move === 0 || move === 6){
             return (
-                <Tab key={move} disabled value={move} classes={tabItemStyles} label={label} />
+                <Tab key={move} disabled value={move} classes={tabItemStyles} label={step} />
             )
         } 
         else {   
             return (
-                <Tab classes={tabItemStyles} key={move} value={move} label={label} />
+                <Tab classes={tabItemStyles} key={move} value={move} label={step} />
             )
         }
     })

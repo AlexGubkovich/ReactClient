@@ -3,18 +3,32 @@
 }
 
 .App-header {
-  background-color: #513c9b;
+  background-color: #ffffff;
   min-height: 10vh;
   display: flex;
   flex-direction: row;
   align-content: center;
-  padding: 0 30px;
   align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
-  color: rgb(243, 242, 242);
 }
 
 .App-link {
   color: #0a2730;
+}
+
+.timeline {
+  width: 27px;
+  height: 100%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline__line {
+  width: 2px;
+  height: 180px;
+  background-color: #5F2EEA;
+  margin: 3px 0 3px 0;
 }

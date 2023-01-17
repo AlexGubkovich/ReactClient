@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Unstable_Grid2'; 
-import Box from '@mui/material/Box';
 
 import { GroupMenu } from './GroupMenu';
 import { DaysOfWeakMenu } from './DaysOfWeakMenu';
@@ -59,7 +58,7 @@ export function Timetables(){
     }
 
     return (
-        <Grid container spacing={1}>
+        <Grid container mt={1} spacing={1}>
             <Grid xs={12} container sx={{ justifyContent: 'center' }}>
                 <Grid>
                     <DaysOfWeakMenu onSelectDayHandler={selectDayHandler}/>
@@ -68,7 +67,7 @@ export function Timetables(){
                     <GroupMenu onSelectGroupHandler={selectGroupHandler} />
                 </Grid>
             </Grid>
-            <Grid xs={12} container sx={{ justifyContent: 'center' }}>
+            <Grid xs={12} container sx={{ justifyContent: 'start' }}>
                 <Grid>
                     {schedule}        
                 </Grid>
