@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Unstable_Grid2'; 
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+
 
 import { GroupMenu } from './GroupMenu';
 import { DaysOfWeakMenu } from './DaysOfWeakMenu';
@@ -42,9 +45,21 @@ export function Timetables(){
     if(callSchelule !== null){
         schedule = <Schedule lessons={callSchelule.lessons}/>
     }
-    // else{
-    //     schedule = <h4>расписания нет</h4>;
-    // }
+    else{
+        schedule = (
+            <Stack spacing={1} sx={{alignItems: 'center'}}>
+                <Skeleton variant="circular" width={22} height={22} />
+                <Skeleton variant="rounded" width={3} height={60} />
+                <Skeleton variant="circular" width={22} height={22} />
+                <Skeleton variant="rounded" width={3} height={60} />
+                <Skeleton variant="circular" width={22} height={22} />
+                <Skeleton variant="rounded" width={3} height={60} />
+                <Skeleton variant="circular" width={22} height={22} />
+                <Skeleton variant="rounded" width={3} height={60} />
+                <Skeleton variant="circular" width={22} height={22} />
+            </Stack>
+        ) 
+    }
 
     let classes;
     if(timetables !== null){
