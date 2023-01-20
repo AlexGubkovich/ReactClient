@@ -4,8 +4,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-
-
 export function GroupMenu(props){
     const [groups, setGroups] = useState([]);
     const [value, setValue] = useState('none');
@@ -31,7 +29,9 @@ export function GroupMenu(props){
     })
 
     return (
-        <FormControl variant="outlined" sx={{ m: 1, minWidth: 120, borderRadius: '16px' }}>
+        <FormControl size='small' variant="outlined" focused={false}
+            sx={{ m: 2, minWidth: 100, borderRadius: 2}}
+        >
             <Select
                 id="demo-simple-select-standard"
                 onChange={changeSelectedGroup}

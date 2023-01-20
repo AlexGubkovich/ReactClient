@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import Grid from '@mui/material/Unstable_Grid2'; 
+import Box from '@mui/material/Box';
+
 import { GroupMenu } from './GroupMenu';
 import { DaysOfWeakMenu } from './DaysOfWeakMenu';
 import { Schedule } from './Schedule';
 import { Classes } from './Classes'
 import { createAPIEndpoint, ENDPOINTS } from '../api';
+
 
 export function Timetables(){
     
@@ -54,26 +58,24 @@ export function Timetables(){
         }
     }
 
-    const style = {
-        display: 'inline-flex',
-        margin: '30px'
-    }
-
     return (
-        <div>
-            <div style={style}>
-                <DaysOfWeakMenu onSelectDayHandler={selectDayHandler}/>
-                <GroupMenu onSelectGroupHandler={selectGroupHandler} />
-            </div>
-            <div>
-                <span style={style}>
+        <Grid container spacing={1}>
+            <Grid xs={12} container sx={{ justifyContent: 'center' }}>
+                <Grid>
+                    <DaysOfWeakMenu onSelectDayHandler={selectDayHandler}/>
+                </Grid>
+                <Grid>
+                    <GroupMenu onSelectGroupHandler={selectGroupHandler} />
+                </Grid>
+            </Grid>
+            <Grid xs={12} container sx={{ justifyContent: 'center' }}>
+                <Grid>
                     {schedule}        
-                </span>
-                <span style={style}>
-                    {classes}        
-                </span>
-            </div>
-        </div>
-
+                </Grid>
+                <Grid>
+                    {classes}
+                </Grid>
+            </Grid>
+        </Grid>
     )
 }

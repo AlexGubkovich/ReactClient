@@ -1,4 +1,16 @@
 import React from 'react';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
 export function Classes(props){
     const classes = props.classes;
@@ -9,18 +21,19 @@ export function Classes(props){
     for (let i = 1; i <= classes[classes.length-1].number; i++) {
         if(classes.find(e => e.number === i)){
             let currentSubject = subjects[numberSubject];
-            classElements.push(<div key={i}><p>{currentSubject.name} - {currentSubject.teacher.fullName}</p></div>);
+            classElements.push(<Item key={i}>{currentSubject.name} - {currentSubject.teacher.fullName}</Item>);
             numberSubject++;
         }
         else{
-            classElements.push(<div key={i}><p>Нет пары😘</p></div>);
+            classElements.push(<Item key={i}>Нет пары <span role="img" aria-labelledby="love">❤️😘🥳</span></Item>);
         }
     }
 
     return (
-        <div>
-            {classElements}
-        </div>
-    
+        <Box sx={{ width: '100%' }}>
+            <Stack spacing={3}>
+                {classElements}
+            </Stack>
+        </Box>
     )
 }
