@@ -3,7 +3,8 @@
 
 Стек технологий: React JS, Material UI.
 
-![Image alt](https://github.com/Alex/Photos/raw/main/TimetablePhoto.png)
-![Image alt](https://github.com/Alex/Photos/raw/main/TimetablePhotoMobile.png)
+![Image alt](https://github.com/AlexGubkovich/Photos/raw/main/TimetablePhoto.png)
+![Image alt](https://github.com/AlexGubkovich/Photos/raw/main/TimetablePhotoMobile.png)
+![Image alt](https://github.com/AlexGubkovich/Photos/raw/main/TimetablePhotos.html)
 
 
