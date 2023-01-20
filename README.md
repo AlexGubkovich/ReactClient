@@ -3,4 +3,4 @@
 
 Стек технологий: React JS, Material UI.
 
-![Image alt](https://github.com/Alex/Photos/raw/main/image.png)
+![Image alt](https://github.com/Alex/Photos/raw/main/TimetablePhotos.html)
