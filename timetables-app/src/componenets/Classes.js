@@ -8,9 +8,10 @@ export function Classes(props){
 
     let classElements = [];
 
-    for (let i = 1; i <= classSubjects[classSubjects.length-1].classNumber; i++) {
-        if(classes.find(e => e.number === i)){
-            classElements.push(<ClassItem key={i} subjectName={classSubjects[i].subjectName} teacherName={classSubjects[i].teacherName}/>);
+    for (let i = 0; i < classSubjects[classSubjects.length-1].classNumber; i++) {
+        var classSubject = classSubjects.find(e => e.classNumber === i+1);
+        if(classSubject !== undefined){
+            classElements.push(<ClassItem key={i} subjectName={classSubject.subjectName} teacherName={classSubject.teacherName}/>);
         }
         else{
             classElements.push(<ThereIsNoClassItem key={i}/>);
