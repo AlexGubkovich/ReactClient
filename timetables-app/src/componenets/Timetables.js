@@ -15,18 +15,18 @@ export function Timetables(){
     
     const [selectedGroup, setGroup] = useState(null);
     const [selectedDay, setDay] = useState(null);
-    const [callSchelule, setCallSchelule] = useState(null);
+    const [Schelule, setSchelule] = useState(null);
     const [timetables, setTimetables] = useState(null);
 
     const selectGroupHandler = group => setGroup(group);
     const selectDayHandler = day => setDay(day);
 
     useEffect(() => {
-        if(callSchelule === null){
+        if(Schelule === null){
             createAPIEndpoint(ENDPOINTS.getSchedule)
                 .fetch()
                 .then(res => {
-                    setCallSchelule(res.data)
+                    setSchelule(res.data)
                 })
                 .catch(err => { console.log(err); })
         }
@@ -42,8 +42,8 @@ export function Timetables(){
     },[selectedGroup])
 
     let schedule = null;
-    if(callSchelule !== null){
-        schedule = <Schedule lessons={callSchelule.lessons}/>
+    if(Schelule !== null){
+        schedule = <Schedule lessons={Schelule.lessons}/>
     }
     else{
         schedule = (
