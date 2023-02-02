@@ -4,16 +4,13 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 
 export function Classes(props){
-    const classes = props.classes;
-    const subjects = props.subjects;
+    const classSubjects = props.classSubjects;
+
     let classElements = [];
 
-    let numberSubject = 0;
-    for (let i = 1; i <= classes[classes.length-1].number; i++) {
+    for (let i = 1; i <= classSubjects[classSubjects.length-1].classNumber; i++) {
         if(classes.find(e => e.number === i)){
-            let currentSubject = subjects[numberSubject];
-            classElements.push(<ClassItem key={i} subjectName={currentSubject.name} teacherName={currentSubject.teacher.fullName}/>);
-            numberSubject++;
+            classElements.push(<ClassItem key={i} subjectName={classSubjects[i].subjectName} teacherName={classSubjects[i].teacherName}/>);
         }
         else{
             classElements.push(<ThereIsNoClassItem key={i}/>);

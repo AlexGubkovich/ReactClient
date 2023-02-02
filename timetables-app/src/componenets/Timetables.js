@@ -23,7 +23,7 @@ export function Timetables(){
 
     useEffect(() => {
         if(callSchelule === null){
-            createAPIEndpoint(ENDPOINTS.getCallSchedule)
+            createAPIEndpoint(ENDPOINTS.getSchedule)
                 .fetch()
                 .then(res => {
                     setCallSchelule(res.data)
@@ -65,7 +65,7 @@ export function Timetables(){
     if(timetables !== null){
         let timetable = timetables.find(e => e.date === selectedDay)
         if(timetable !== undefined){
-            classes = <Classes subjects={timetable.subjects} classes={timetable.classes}/>
+            classes = <Classes classSubjects={timetable.classSubjects}/>
         }
         else {
             classes = <ThereIsNoClassesToday/>;

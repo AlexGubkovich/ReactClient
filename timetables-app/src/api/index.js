@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-export const BASE_URL = 'https://mytapp.azurewebsites.net/';
+export const BASE_URL = 'https://localhost:5001/';
 
 export const ENDPOINTS = {
     getGroups: "Groups",
-    getTimetables: "Timetables",
-    getCallSchedule: "CallSchedules"
+    getTimetables: "Timetables/byGroup",
+    getSchedule: "Schedules/active/lessons"
 
 }
 
