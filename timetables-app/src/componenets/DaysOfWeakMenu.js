@@ -1,31 +1,26 @@
 import { DAYS_OF_WEEK } from '../helper'
-import React, { useEffect } from 'react';
+import React from 'react';
 import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
 
 export function DaysOfWeakMenu(props){
-    const [selectedDay, setValue] = React.useState(1);
-    const [isDaySelected, setIsDaySelected] = React.useState(false);
+    const [selectedDay, setValue] = React.useState(null);
+
+    const changeSelectedDay = (event, newValue) => {
+        props.onSelectDayHandler(newValue)
+        setValue(parseInt(newValue));
+    };
 
     const date = new Date();
     const currentDay = date.getDay();
 
-    useEffect(() => {
-        if(currentDay !== 0 && currentDay !== 6 && isDaySelected !== true){
-            changeSelectedDay(null, currentDay)
-            setIsDaySelected(true);
-        }
-        else if(!isDaySelected){
-            changeSelectedDay(null, 1)
-            setIsDaySelected(true);
-        }
-    })
-
-    function changeSelectedDay(event, newValue){
-        props.onSelectDayHandler(newValue)
-        setValue(parseInt(newValue));
+    if(currentDay !== 0 && currentDay !== 6 && selectedDay === null){
+        changeSelectedDay(null, currentDay)
+    }
+    else if(selectedDay === null){
+        changeSelectedDay(null, 1)
     }
 
     let daysMenu = DAYS_OF_WEEK.map((step, move) => {
